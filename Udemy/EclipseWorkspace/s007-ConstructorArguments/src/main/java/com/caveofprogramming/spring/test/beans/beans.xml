@@ -4,7 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="person" class="com.caveofprogramming.spring.test.Person">
-		<constructor-arg value="777"></constructor-arg>
-		<constructor-arg value="Mary"></constructor-arg>
+		<constructor-arg value="777" name="id" type="int" index="0"></constructor-arg>
+		<constructor-arg value="Mary" index="1" name="name" type="String">
+		</constructor-arg>
 	</bean>
 </beans>
