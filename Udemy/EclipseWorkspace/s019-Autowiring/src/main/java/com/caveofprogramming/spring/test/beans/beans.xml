@@ -15,8 +15,4 @@
 
 	<bean id="filewriter" class="com.caveofprogramming.spring.test.FileWriter">
 	</bean>
-	
-	<bean id="consoleWriter1"
-		class="com.caveofprogramming.spring.test.ConsoleWriter">
-	</bean>
 </beans>

@@ -6,10 +6,10 @@ package com.caveofprogramming.spring.test;
 
 public class Logger {
 
-	private ConsoleWriter consoleWriter;
+	private LogWriter consoleWriter;
 	private FileWriter fileWriter;
 
-	public void setConsoleWriter(ConsoleWriter writer) {
+	public void setConsoleWriter(LogWriter writer) {
 		this.consoleWriter = writer;
 	}
 
