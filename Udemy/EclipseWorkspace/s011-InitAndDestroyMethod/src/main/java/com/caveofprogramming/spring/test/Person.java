@@ -19,6 +19,10 @@ public class Person {
 	public void onCreate(){
 		System.out.println("Person created: " + this);
 	}
+	
+	public void onDestroy(){
+		System.out.println("Person destroyed.");
+	}
 
 	public void speak() {
 		System.out.println("Hello I'm a person");
