@@ -1,11 +1,12 @@
 package com.caveofprogramming.spring.test;
 
 public class Person {
-	
+
 	private int id;
 	private String name;
 	private int taxId;
-	
+	private Address address;
+
 	public Person() {
 		super();
 	}
@@ -15,7 +16,7 @@ public class Person {
 		this.name = name;
 	}
 
-	public void speak(){
+	public void speak() {
 		System.out.println("Hello I'm a person");
 	}
 
@@ -23,11 +24,14 @@ public class Person {
 		this.taxId = taxId;
 	}
 
-	@Override
-	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", taxId=" + taxId + "]";
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", taxId=" + taxId
+				+ ", address=" + address + "]";
+	}
 
 }
