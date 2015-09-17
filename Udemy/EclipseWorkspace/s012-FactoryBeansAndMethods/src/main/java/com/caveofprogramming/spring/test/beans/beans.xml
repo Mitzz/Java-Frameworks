@@ -7,8 +7,8 @@
 	<bean id="person" class="com.caveofprogramming.spring.test.Person"
 		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
 		factory-method="getInstance">
-		
-		
+		<constructor-arg value="777" name="id" type="int" index="0"></constructor-arg>
+		<constructor-arg value="Mary" index="1" name="name" type="String"></constructor-arg>
 		<property name="taxId">
 			<value>321</value>
 		</property>
