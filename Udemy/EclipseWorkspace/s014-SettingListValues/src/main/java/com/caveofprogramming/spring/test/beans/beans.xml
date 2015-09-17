@@ -10,13 +10,14 @@
 
 	<constructor-arg name="name" value="John's basket"></constructor-arg>
 	<constructor-arg>
-		<list>
+		<set>
 			<value>apple</value>
 			<value>banana</value>
 			<value>orange</value>
 			<value>kiwi</value>
 			<value>pear</value>
-		</list>
+			<value>orange</value>
+		</set>
 	</constructor-arg>
 	</bean>
 
