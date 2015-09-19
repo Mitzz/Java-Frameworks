@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class Logger {
 
-	@Autowired
 	private ConsoleWriter consoleWriter;
-	
-	@Autowired
 	private FileWriter fileWriter;
+
+	@Autowired
+	public Logger(ConsoleWriter console, FileWriter file) {
+		this.consoleWriter = console;
+		this.fileWriter = file;
+	}
 
 	public void setConsoleWriter(ConsoleWriter consoleWriter) {
 		this.consoleWriter = consoleWriter;
