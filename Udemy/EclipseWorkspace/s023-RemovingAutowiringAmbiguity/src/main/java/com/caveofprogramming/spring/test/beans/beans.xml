@@ -8,7 +8,12 @@
 	<bean id="logger" class="com.caveofprogramming.spring.test.Logger">
 	</bean>
 
-	<bean id="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
+	<bean id="consoleWriter"
+		class="com.caveofprogramming.spring.test.ConsoleWriter"
+		primary="true">
+	</bean>
+
+	<bean id="panda" class="com.caveofprogramming.spring.test.ConsoleWriter">
 	</bean>
 
 	<bean id="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
