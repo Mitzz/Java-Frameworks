@@ -10,7 +10,7 @@
 	
 	<bean id="robot" class="com.caveofprogramming.spring.test.Robot">
 		<property name="id" value="#{77 + 55}"></property>
-		<property name="speech" value="#{randomText.getText()}"></property>
+		<property name="speech" value="#{randomText.text}"></property>
 	</bean>
 	<bean id="randomText"
 		class="com.caveofprogramming.spring.test.RandomText">
