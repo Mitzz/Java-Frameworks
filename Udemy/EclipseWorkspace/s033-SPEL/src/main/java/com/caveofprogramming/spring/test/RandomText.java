@@ -8,7 +8,8 @@ public class RandomText {
 		
 		"I'll be back",
 		"Get out!",
-		"I want your clothes, boots and motorcycle."
+		"I want your clothes, boots and motorcycle.",
+		null
 	};
 	
 	public String getText(){

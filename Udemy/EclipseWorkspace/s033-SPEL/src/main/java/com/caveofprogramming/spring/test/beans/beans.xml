@@ -6,10 +6,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-	
-	
 	<bean id="robot" class="com.caveofprogramming.spring.test.Robot">
-		<property name="id" value="#{77 + 55}"></property>
+		<property name="id" value="#{randomText.text?.length()}"></property>
 		<property name="speech" value="#{randomText.text}"></property>
 	</bean>
 	<bean id="randomText"
