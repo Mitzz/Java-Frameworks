@@ -2,7 +2,7 @@ package com.caveofprogramming.spring.test;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("fileWriter")
 public class FileWriter implements LogWriter {
 
 	public void write(String text) {
