@@ -15,12 +15,12 @@ public class Robot {
 	}
 
 	@Autowired
-	public void setId(@Value("12345") String id) {
+	public void setId(@Value("#{randomText.text?.length()}") String id) {
 		this.id = id;
 	}
 
 	@Autowired
-	public void setSpeech(@Value("Hi there") String speech) {
+	public void setSpeech(@Value("#{randomText.text}") String speech) {
 		this.speech = speech;
 	}
 	
