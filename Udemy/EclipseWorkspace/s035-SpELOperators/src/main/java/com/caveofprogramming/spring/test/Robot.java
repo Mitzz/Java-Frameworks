@@ -20,7 +20,7 @@ public class Robot {
 	}
 
 	@Autowired
-	public void setSpeech(@Value("#{T(Math).sin(5)}") String speech) {
+	public void setSpeech(@Value("#{T(Math).sin(T(Math).PI/4)}") String speech) {
 		this.speech = speech;
 	}
 	
