@@ -20,7 +20,7 @@ public class Robot {
 	}
 
 	@Autowired
-	public void setSpeech(@Value("#{new java.util.Date().toString()}") String speech) {
+	public void setSpeech(@Value("#{T(Math).PI}") String speech) {
 		this.speech = speech;
 	}
 	
