@@ -10,10 +10,8 @@
 <body>
 Hi there!!!
 
-Session: <%= session.getAttribute("name") %> <p/>
-
-Request: <%= request.getAttribute("name") %> <p/>
-
 Request(Using EL): ${name} <p/>
+
+<c:out value="${name}"></c:out> <p/>
 </body>
 </html>
