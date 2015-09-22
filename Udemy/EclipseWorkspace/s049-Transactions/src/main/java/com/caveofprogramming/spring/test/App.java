@@ -19,8 +19,8 @@ public class App {
 		try{
 			List<Offer> offers = new ArrayList<Offer>();
 			
-			offers.add(new Offer(4, "Steve", "steve@caveofprogramming.com", "Cash for software"));
-			offers.add(new Offer(5, "Joe", "joe@caveofprogramming.com", "Elegant Web Design"));
+			offers.add(new Offer(3, "Steve", "steve@caveofprogramming.com", "Cash for software"));
+			offers.add(new Offer(2, "Joe", "joe@caveofprogramming.com", "Elegant Web Design"));
 			
 			int[] rvals = offersDao.create(offers);
 			
