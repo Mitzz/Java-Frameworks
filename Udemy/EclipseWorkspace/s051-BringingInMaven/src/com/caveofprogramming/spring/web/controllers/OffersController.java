@@ -16,7 +16,7 @@ public class OffersController {
 		ModelAndView mv = new ModelAndView("home");
 		
 		Map<String, Object> model = mv.getModel();
-		model.put("name", "River");
+		model.put("name", "<b>River</b>");
 		
 		return mv;
 		
