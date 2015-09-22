@@ -7,23 +7,26 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OffersDAO {
 	
-	private JdbcTemplate jdbc;
+	private NamedParameterJdbcTemplate jdbc;
 	
 	@Autowired
 	public void setDataSource(DataSource jdbc){
-		this.jdbc = new JdbcTemplate(jdbc);
+		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
 	
 	public List<Offer> getOffers() {
 		
-		return jdbc.query("Select * from offers where name = 'Sue'", new RowMapper<Offer>(){
+		MapSqlParameterSource params = new MapSqlParameterSource("name", "Sue");
+		
+		return jdbc.query("Select * from offers where name = :name", params, new RowMapper<Offer>(){
 
 			public Offer mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Offer offer = new Offer();
