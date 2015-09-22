@@ -24,9 +24,27 @@ public class OffersDAO {
 	
 	public List<Offer> getOffers() {
 		
-		MapSqlParameterSource params = new MapSqlParameterSource("name", "Sue");
+		return jdbc.query("Select * from offers", new RowMapper<Offer>(){
+
+			public Offer mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Offer offer = new Offer();
+				offer.setId(rs.getInt("id"));
+				offer.setName(rs.getString("name"));
+				offer.setText(rs.getString("text"));
+				offer.setEmail(rs.getString("email"));
+				return offer;
+			}
+			
+		});
 		
-		return jdbc.query("Select * from offers where name = :name", params, new RowMapper<Offer>(){
+	}
+	
+	public Offer getOffers(int id) {
+		
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("id", id);
+		
+		return jdbc.queryForObject("Select * from offers where id = :id", params, new RowMapper<Offer>(){
 
 			public Offer mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Offer offer = new Offer();
