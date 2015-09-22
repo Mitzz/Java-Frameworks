@@ -23,7 +23,7 @@ public class OffersDAO {
 	
 	public List<Offer> getOffers() {
 		
-		return jdbc.query("Select * from offers", new RowMapper<Offer>(){
+		return jdbc.query("Selec t * from offers", new RowMapper<Offer>(){
 
 			public Offer mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Offer offer = new Offer();
