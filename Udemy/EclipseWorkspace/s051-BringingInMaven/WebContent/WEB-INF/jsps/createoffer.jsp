@@ -5,31 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Create New Offer</title>
-<style type="text/css">
-.formtable {
-	width: 400px;
-	padding: 10px;
-	border: 1px solid blue;
-}
-
-input[type=text] {
-	width: 250px;
-}
-
-textarea {
-	width: 250px;
-	height: 300px;
-}
-
-.label {
-	text-align: right;
-	vertical-align: top;
-}
-
-.control {
-	margin-left: 10px;
-}
-</style>
 </head>
 <body>
 	<form method="post"
