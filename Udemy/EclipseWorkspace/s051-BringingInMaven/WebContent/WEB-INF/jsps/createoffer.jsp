@@ -7,7 +7,7 @@
 <title>Create New Offer</title>
 </head>
 <body>
-	<form method="get" action="${pageContext.request.contextPath}/docreate">
+	<form method="post" action="${pageContext.request.contextPath}/docreate">
 
 		<table>
 			<tr>
@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<td>Your offer:</td>
-				<td><textarea rows="10" cols="10"></textarea></td>
+				<td><textarea name="text" rows="10" cols="10"></textarea></td>
 			</tr>
 			<tr>
 				<td></td>
