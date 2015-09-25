@@ -52,17 +52,16 @@ public class OffersController {
 		if(result.hasErrors()){
 			System.out.println("Form does not validate");
 			
-			List<ObjectError> errors = new ArrayList<ObjectError>();
+			List<ObjectError> errors = result.getAllErrors();
 			
 			for(ObjectError error : errors){
-				System.out.println(error);
+				System.out.println(error.getDefaultMessage());
 			}
 			
 		} else {
 			System.out.println("Form validated");
 		}
 		
-		System.out.println(offer);
 		return "offercreated";
 	}
 }
