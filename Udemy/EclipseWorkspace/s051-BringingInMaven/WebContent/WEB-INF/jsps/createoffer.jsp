@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="${pageContext.request.contextPath}/static/css/main.css" rel="stylesheet" type="text/css" />
 <title>Create New Offer</title>
 </head>
 <body>
