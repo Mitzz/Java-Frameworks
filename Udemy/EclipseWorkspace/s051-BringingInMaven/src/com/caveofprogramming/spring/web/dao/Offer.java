@@ -13,7 +13,7 @@ public class Offer {
 	private String name;
 	
 	@NotNull
-	@ValidEmail(min=6)
+	@ValidEmail(min=6, message="This email address is not valid")
 	private String email;
 	
 	@Size(min=20, max=255, message="Text must be between 20 and 255 character")
