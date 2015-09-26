@@ -22,4 +22,8 @@ public class OffersService {
 		this.offersDAO = offersDAO;
 	}
 
+	public void create(Offer offer) {
+		offersDAO.create(offer);
+	}
+
 }
