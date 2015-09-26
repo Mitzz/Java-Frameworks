@@ -70,4 +70,9 @@
 		<artifactId>commons-validator</artifactId>
 		<version>1.4.0</version>
 	</dependency>
+	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-aspects</artifactId>
+  		<version>3.2.3.RELEASE</version>
+  	</dependency>
   </dependencies>
