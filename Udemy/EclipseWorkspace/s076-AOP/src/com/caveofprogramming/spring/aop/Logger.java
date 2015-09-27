@@ -2,6 +2,7 @@ package com.caveofprogramming.spring.aop;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -27,5 +28,10 @@ public class Logger {
 	@AfterReturning("cameraSnap()")
 	public void afterReturningAdvice(){
 		System.out.println("After returning Advice...");
+	}
+	
+	@AfterThrowing("cameraSnap()")
+	public void afterThrowingAdvice(){
+		System.out.println("After Throwing Advice...");
 	}
 }
