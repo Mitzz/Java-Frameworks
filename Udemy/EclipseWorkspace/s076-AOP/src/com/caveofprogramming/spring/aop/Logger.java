@@ -1,8 +1,10 @@
 package com.caveofprogramming.spring.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -34,4 +36,18 @@ public class Logger {
 	public void afterThrowingAdvice(){
 		System.out.println("After Throwing Advice...");
 	}
+	
+	@Around("cameraSnap()")
+	public void aroundAdvice(ProceedingJoinPoint p){
+		System.out.println("Around advice (before)...");
+		
+		try {
+			p.proceed();
+		} catch (Throwable e) {
+			System.out.println("In around advice: " + e.getMessage());
+		}
+		
+		System.out.println("Around advice (after)...");
+	}
+	
 }
