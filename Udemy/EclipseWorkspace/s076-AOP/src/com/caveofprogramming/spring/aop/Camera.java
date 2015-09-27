@@ -8,7 +8,7 @@ public class Camera {
 	public void snap() throws Exception{
 		System.out.println("SNAP!");
 		
-		throw new Exception("bye bye!");
+//		throw new Exception("bye bye!");
 	}
 	
 	public void snap(int exposure){
