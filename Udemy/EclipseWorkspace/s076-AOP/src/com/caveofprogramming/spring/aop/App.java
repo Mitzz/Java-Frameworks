@@ -10,7 +10,10 @@ public class App {
 		
 		Object obj = context.getBean("camera");
 		System.out.println("Class of 'camera' bean: " + obj.getClass());
+		
 		System.out.println(obj instanceof Camera);
+		System.out.println(obj instanceof PhotoSnapper);
+		System.out.println(obj instanceof Machine);
 		
 		Camera camera = (Camera) context.getBean("camera");
 		
