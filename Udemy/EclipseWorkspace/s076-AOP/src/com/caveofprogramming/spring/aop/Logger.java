@@ -9,11 +9,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-	@Pointcut("execution(* com.caveofprogramming.spring.aop.*.*(..))")
+	@Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.*(..))")
 	public void cameraSnap(){}
 	
 	@Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.snap(String))")
 	public void cameraSnapName(){}
+	
+	@Pointcut("execution(* com.caveofprogramming.spring.aop.*.*(..))")
+	public void cameraRelatedAction(){}
 	
 	@Before("cameraSnap()")
 	public void aboutToTakePhoto(){
@@ -23,5 +26,10 @@ public class Logger {
 	@Before("cameraSnapName()")
 	public void aboutToTakePhotoWithName(){
 		System.out.println("About to take photo with name...");
+	}
+	
+	@Before("cameraRelatedAction()")
+	public void aboutToDoCameraRelatedAction(){
+		System.out.println("Doing something related to camera...");
 	}
 }
