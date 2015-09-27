@@ -10,11 +10,19 @@ import org.springframework.stereotype.Component;
 public class Logger {
 
 	@Pointcut("within(com.caveofprogramming.spring..*)")
-	public void cameraSnap(){}
+	public void withinDemo(){}
 	
-	@Before("cameraSnap()")
-	public void beforeAdvice(){
-		System.out.println("**********Before advice***********");
+	@Pointcut("target(com.caveofprogramming.spring.aop.Camera)")
+	public void targetDemo(){}
+	
+	@Before("withinDemo()")
+	public void withinDemoAdvice(){
+		System.out.println("**********WITHIN DEMO(Before advice)***********");
+	}
+	
+	@Before("targetDemo()")
+	public void targetDemoAdvice(){
+		System.out.println("**********TARGET DEMO(Before advice)***********");
 	}
 	
 }
