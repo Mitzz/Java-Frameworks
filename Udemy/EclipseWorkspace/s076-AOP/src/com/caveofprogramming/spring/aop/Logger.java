@@ -15,6 +15,15 @@ public class Logger {
 	@Pointcut("target(com.caveofprogramming.spring.aop.Camera)")
 	public void targetDemo(){}
 	
+	@Pointcut("this(com.caveofprogramming.spring.aop.Camera)")
+	public void thisDemoUsingTargetClass(){}
+	
+	@Pointcut("this(com.caveofprogramming.spring.aop.ICamera)")
+	public void thisDemoUsingTargetInterface(){}
+	
+	@Pointcut("this(com.caveofprogramming.spring.aop.ICamera)")
+	public void thisDemo(){}
+	
 	@Before("withinDemo()")
 	public void withinDemoAdvice(){
 		System.out.println("**********WITHIN DEMO(Before advice)***********");
@@ -23,6 +32,16 @@ public class Logger {
 	@Before("targetDemo()")
 	public void targetDemoAdvice(){
 		System.out.println("**********TARGET DEMO(Before advice)***********");
+	}
+	
+	@Before("thisDemoUsingTargetClass()")
+	public void thisDemoUsingTargetClassAdvice(){
+		System.out.println("**********THIS DEMO TARGET CLASS(Before advice)***********");
+	}
+	
+	@Before("thisDemoUsingTargetInterface()")
+	public void thisDemoUsingTargetInterfaceAdvice(){
+		System.out.println("**********THIS DEMO TARGET INTERFACE(Before advice)***********");
 	}
 	
 }
