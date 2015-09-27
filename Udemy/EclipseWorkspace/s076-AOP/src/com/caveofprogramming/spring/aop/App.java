@@ -15,7 +15,7 @@ public class App {
 		System.out.println(obj instanceof PhotoSnapper);
 		System.out.println(obj instanceof Machine);
 		
-		Camera camera = (Camera) context.getBean("camera");
+		ICamera camera = (ICamera) context.getBean("camera");
 		
 		try {
 			camera.snap();
