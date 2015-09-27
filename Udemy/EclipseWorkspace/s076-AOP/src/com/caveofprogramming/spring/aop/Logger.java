@@ -12,7 +12,7 @@ public class Logger {
 	@Pointcut("execution(void com.caveofprogramming.spring.aop.Camera.snap(..))")
 	public void cameraSnap(){}
 	
-	@Pointcut("execution(String com.caveofprogramming.spring.aop.Camera.snap(String))")
+	@Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.snap(String))")
 	public void cameraSnapName(){}
 	
 	@Before("cameraSnap()")
