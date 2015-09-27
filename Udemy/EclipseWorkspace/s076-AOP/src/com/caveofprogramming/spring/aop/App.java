@@ -11,6 +11,7 @@ public class App {
 		camera.snap();
 		camera.snap(1000);
 		camera.snap("Prague castle");
+		camera.snapNighttime(); 
 		System.out.println("-----");
 		context.close();
 	}
