@@ -13,7 +13,8 @@ public class Camera {
 		System.out.println("SNAP! Exposure: " + exposure);
 	}
 	
-	public void snap(String name){
+	public String snap(String name){
 		System.out.println("SNAP! Name: " + name);
+		return name;
 	}
 }
