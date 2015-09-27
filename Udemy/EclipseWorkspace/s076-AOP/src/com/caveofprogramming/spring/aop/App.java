@@ -9,6 +9,7 @@ public class App {
 		System.out.println("-----");
 		Camera camera = (Camera) context.getBean("camera");
 		camera.snap();
+		camera.snap(1000);
 		System.out.println("-----");
 		context.close();
 	}

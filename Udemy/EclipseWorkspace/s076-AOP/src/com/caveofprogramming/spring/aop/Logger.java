@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-	@Pointcut("execution(void com.caveofprogramming.spring.aop.Camera.snap())")
+	@Pointcut("execution(void com.caveofprogramming.spring.aop.Camera.snap(..))")
 	public void cameraSnap(){}
 	
 	@Before("cameraSnap()")
