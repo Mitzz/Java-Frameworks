@@ -8,9 +8,10 @@
 	<bean id="logger" class="com.caveofprogramming.spring.aop.Logger"></bean>
 	<aop:config>
 		
-		<aop:pointcut id="camerasnap" expression="execution(void com.caveofprogramming.spring.aop.Camera.snap())" />
+		
 		<aop:aspect id="loggeraspect" ref="logger">
-			<aop:before method="aboutToTakePhoto" pointcut-ref="camerasnap" />
+			<aop:before method="aboutToTakePhoto"
+				pointcut="execution(void com.caveofprogramming.spring.aop.Camera.snap())" />
 		</aop:aspect>
 	</aop:config>
 </beans>
