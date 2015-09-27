@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-	@Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.snap())")
+	@Pointcut("within(com.caveofprogramming.spring.aop.Camera)")
 	public void cameraSnap(){}
 	
 	@Before("cameraSnap()")
 	public void beforeAdvice(){
-		System.out.println("Before Advice...");
+		System.out.println("**********Before advice***********");
 	}
 	
 }

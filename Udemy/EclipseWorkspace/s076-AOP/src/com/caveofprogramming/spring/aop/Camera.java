@@ -10,7 +10,7 @@ public class Camera implements PhotoSnapper, Machine, ICamera{
 	}
 
 	@Override
-	public void snap() throws Exception{
+	public void snap(){
 		System.out.println("SNAP!");
 		
 		//throw new Exception("bye bye!");
