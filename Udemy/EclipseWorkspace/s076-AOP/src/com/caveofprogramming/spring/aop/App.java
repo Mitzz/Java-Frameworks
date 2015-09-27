@@ -9,7 +9,11 @@ public class App {
 		System.out.println("-----");
 		Camera camera = (Camera) context.getBean("camera");
 		
-		camera.snap();
+		try {
+			camera.snap();
+		} catch (Exception e) {
+			System.out.println("Caught exception " + e.getMessage());
+		}
 		
 		System.out.println("-----");
 		context.close();
