@@ -10,6 +10,7 @@ public class App {
 		Camera camera = (Camera) context.getBean("camera");
 		camera.snap();
 		camera.snap(1000);
+		camera.snap("Prague castle");
 		System.out.println("-----");
 		context.close();
 	}
