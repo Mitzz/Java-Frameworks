@@ -2,6 +2,8 @@ package com.caveofprogramming.spring.aop;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.caveofprogramming.spring.camera.accessories.Lens;
+
 public class App {
 
 	public static void main(String[] args) {

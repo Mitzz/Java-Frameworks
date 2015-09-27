@@ -1,4 +1,4 @@
-package com.caveofprogramming.spring.aop;
+package com.caveofprogramming.spring.camera.accessories;
 
 import org.springframework.stereotype.Component;
 
