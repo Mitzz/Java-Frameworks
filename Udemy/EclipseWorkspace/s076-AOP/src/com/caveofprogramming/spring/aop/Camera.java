@@ -3,6 +3,7 @@ package com.caveofprogramming.spring.aop;
 import org.springframework.stereotype.Component;
 
 @Component("camera")
+@Deprecated
 public class Camera implements PhotoSnapper, Machine, ICamera{
 	
 	public Camera() {
