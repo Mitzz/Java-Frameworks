@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-	@Pointcut("within(@org.springframework.stereotype.Component com.caveofprogramming.spring..*)")
+	@Pointcut("@target(org.springframework.stereotype.Component)")
 	public void somePointcut(){}
 	
 	@Before("somePointcut()")
