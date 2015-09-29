@@ -32,4 +32,8 @@ public class Camera implements PhotoSnapper, Machine, ICamera{
 	public void snapNighttime(){
 		System.out.println("SNAP! Night mode.");
 	}
+	
+	public void snapCar(Car car){
+		System.out.println("Snapping Car!");
+	}
 }

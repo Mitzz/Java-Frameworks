@@ -16,6 +16,8 @@ public class App {
 		
 		Car car = (Car) context.getBean("car");
 		car.start();
+
+		camera.snapCar(new Car());
 		
 		System.out.println("-----");
 		context.close();
