@@ -1,5 +1,6 @@
 package com.caveofprogramming.spring.aop;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -21,5 +22,9 @@ public class Logger {
 		
 		System.out.printf("exposure %d, aperture %.2f\n", exposure, aperture);
 	}
-	
+
+	@After("within(com.caveofprogramming.spring.aop.*) && @annotation(Deprecated)")
+	public void someAfterAdvice(){
+		System.out.println("After advice running!!!!!!!!!!!!!!!!!!!!!!!!");
+	}
 }
