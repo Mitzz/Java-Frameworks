@@ -23,7 +23,7 @@ public class Logger {
 		System.out.printf("exposure %d, aperture %.2f\n", exposure, aperture);
 	}
 
-	@After("within(com.caveofprogramming.spring.aop.*) || @annotation(Deprecated)")
+	@After("within(com.caveofprogramming.spring.aop.*) && !@annotation(Deprecated)")
 	public void someAfterAdvice(){
 		System.out.println("After advice running!!!!!!!!!!!!!!!!!!!!!!!!");
 	}
