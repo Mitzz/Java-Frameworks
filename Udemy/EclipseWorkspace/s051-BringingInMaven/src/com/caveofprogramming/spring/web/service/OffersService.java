@@ -26,4 +26,9 @@ public class OffersService {
 		offersDAO.create(offer);
 	}
 
+	public void throwTestExcpetion() {
+		offersDAO.getOffer(-1);
+		
+	}
+
 }
