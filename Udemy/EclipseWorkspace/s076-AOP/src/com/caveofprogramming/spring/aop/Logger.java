@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-	@Pointcut("bean(*camera)")
+	@Pointcut("bean(*am*ra)")
 	public void somePointcut(){}
 	
 	@Before("somePointcut()")
