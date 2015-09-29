@@ -38,12 +38,12 @@
 		</param-value>
   </context-param>
   <filter>
-    <display-name>TestFilter</display-name>
-    <filter-name>TestFilter</filter-name>
-    <filter-class>com.caveofprogramming.spring.web.filters.TestFilter</filter-class>
+    <display-name>springSecurityFilterChain</display-name>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>TestFilter</filter-name>
+    <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 </web-app>
