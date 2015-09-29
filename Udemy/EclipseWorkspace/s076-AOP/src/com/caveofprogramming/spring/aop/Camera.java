@@ -33,7 +33,7 @@ public class Camera implements PhotoSnapper, Machine, ICamera{
 		System.out.println("SNAP! Night mode.");
 	}
 	
-	public void snapCar(@Deprecated Car car){
+	public void snapCar(Car car){
 		System.out.println("Snapping Car!");
 	}
 }

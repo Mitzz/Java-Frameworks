@@ -2,6 +2,7 @@ package com.caveofprogramming.spring.aop;
 
 import org.springframework.stereotype.Component;
 
+@Deprecated
 @Component
 public class Car {
 
