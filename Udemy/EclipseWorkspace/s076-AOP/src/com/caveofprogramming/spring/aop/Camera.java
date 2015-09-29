@@ -23,6 +23,17 @@ public class Camera implements PhotoSnapper, Machine, ICamera{
 	}
 	
 	@Override
+	public void snap(double exposure){
+		System.out.println("SNAP! Exposure: " + exposure);
+	}
+	
+	@Override
+	public void snap(int exposure, double aperture) {
+		System.out.println("SNAP! Exposure: " + exposure + " aperture: " + aperture);
+		
+	}
+	
+	@Override
 	public String snap(String name){
 		System.out.println("SNAP! Name: " + name);
 		return name;
@@ -36,4 +47,6 @@ public class Camera implements PhotoSnapper, Machine, ICamera{
 	public void snapCar(Car car){
 		System.out.println("Snapping Car!");
 	}
+
+	
 }
