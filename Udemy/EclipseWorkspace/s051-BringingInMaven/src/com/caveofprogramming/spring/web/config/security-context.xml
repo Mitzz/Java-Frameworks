@@ -19,6 +19,8 @@
 	
 	
 	<security:http use-expressions="true">
+		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/offers" access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll" />
 		<security:form-login />
 	</security:http>
