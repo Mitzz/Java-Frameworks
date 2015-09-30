@@ -35,7 +35,8 @@
     <param-value>
 		classpath:com/caveofprogramming/spring/web/config/dao-context.xml
 		classpath:com/caveofprogramming/spring/web/config/service-context.xml
-		</param-value>
+		classpath:com/caveofprogramming/spring/web/config/security-context.xml
+	</param-value>
   </context-param>
   <filter>
     <display-name>springSecurityFilterChain</display-name>
