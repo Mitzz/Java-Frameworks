@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -48,8 +49,9 @@ public class LoginController {
 		try{
 			usersService.create(user);
 		}
-		catch(DataAccessException e){
-			System.out.println(e.getClass());
+		catch(DuplicateKeyException e){
+			result.rejectValue("username", "DuplicateKey.user.username", "This username already exist!");
+			return "newaccount";
 		}
 		
 		return "accountcreated";
