@@ -16,12 +16,12 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-@Component
-public class OffersDAO {
+@Component("offersDao")
+public class OffersDao {
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
-	public OffersDAO(){
+	public OffersDao(){
 		System.out.println("Successfully loaded OffersDAO");
 	}
 	
