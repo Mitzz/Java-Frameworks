@@ -9,14 +9,14 @@ public class Offer {
 	private int id;
 	
 	
-	@Size(min=5, max=100, message="Name must be between 5 and 100 character")
+	@Size(min=5, max=100)
 	private String name;
 	
 	@NotNull
-	@ValidEmail(min=6, message="This email address is not valid")
+	@ValidEmail(min=6)
 	private String email;
 	
-	@Size(min=20, max=255, message="Text must be between 20 and 255 character")
+	@Size(min=20, max=255)
 	private String text;
 	
 	public Offer() {}
