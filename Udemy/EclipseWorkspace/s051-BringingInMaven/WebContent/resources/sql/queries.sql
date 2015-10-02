@@ -16,3 +16,7 @@ select * from authorities;
 
 ALTER TABLE users
 ADD email varchar(60) not null;
+
+update authorities
+set authority = 'admin'
+where username = 'Administrator';

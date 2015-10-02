@@ -22,7 +22,7 @@
 
 
 	<security:http use-expressions="true">
-		
+		<security:intercept-url pattern="/admin" access="hasRole('admin')" />
 		<security:intercept-url pattern="/docreate" access="isAuthenticated()" />
 		<security:intercept-url pattern="/createoffer" access="isAuthenticated()" />
 		<security:intercept-url pattern="/offercreated" access="isAuthenticated()" />
