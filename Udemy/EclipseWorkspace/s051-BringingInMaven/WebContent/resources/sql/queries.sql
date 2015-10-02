@@ -28,3 +28,7 @@ UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_ADMIN' WHERE `userna
 UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_ADMIN' WHERE `username`='Mike';
 UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_USER' WHERE `username`='GangaMytes';
 UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_USER' WHERE `username`='mithulbhansali';
+
+
+Delete from users where enabled = 1;
+delete from authorities where authoritY in ('ROLE_ADMIN', 'ROLE_USER');
