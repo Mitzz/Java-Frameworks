@@ -20,4 +20,9 @@
 		<put-attribute name="title" value="Current Offers"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/tiles/offers.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="login" extends="offers.base">
+		<put-attribute name="title" value="Login"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/login.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>
