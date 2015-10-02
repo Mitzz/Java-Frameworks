@@ -20,3 +20,11 @@ ADD email varchar(60) not null;
 update authorities
 set authority = 'admin'
 where username = 'Administrator';
+
+Select * from authorities where binary username = 'administrator';
+Select * from users where binary username = 'Administrator';
+
+UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_ADMIN' WHERE `username`='Administrator';
+UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_ADMIN' WHERE `username`='Mike';
+UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_USER' WHERE `username`='GangaMytes';
+UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_USER' WHERE `username`='mithulbhansali';

@@ -32,7 +32,7 @@
 		</p>
 	</sec:authorize>
 
-	<sec:authorize access="hasRole('admin')">
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<p>
 			<a href="<c:url value='/admin'/>">Admin</a>
 		</p>
