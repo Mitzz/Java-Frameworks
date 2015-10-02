@@ -32,4 +32,40 @@
 		<put-attribute name="title" value="Create Account"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/tiles/newaccount.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="accountcreated" extends="offers.base">
+		<put-attribute name="title" value="Account Created"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/accountcreated.jsp"></put-attribute>
+	</definition>
+
+	<definition name="admin" extends="offers.base">
+		<put-attribute name="title" value="Authorised Users Only!"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/admin.jsp"></put-attribute>
+	</definition>
+
+	<definition name="createoffer" extends="offers.base">
+		<put-attribute name="title" value="Create Offer"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/createoffer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="denied" extends="offers.base">
+		<put-attribute name="title" value="Access Denied"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/denied.jsp"></put-attribute>
+	</definition>
+
+	<definition name="error" extends="offers.base">
+		<put-attribute name="title" value="Error"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/error.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="loggedout" extends="offers.base">
+		<put-attribute name="title" value="Logged Out"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/loggedout.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="offercreated" extends="offers.base">
+		<put-attribute name="title" value="Offer Created"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/offercreated.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>
