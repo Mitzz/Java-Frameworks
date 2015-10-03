@@ -32,3 +32,30 @@ UPDATE `springtutorial`.`authorities` SET `authority`='ROLE_USER' WHERE `usernam
 
 Delete from users where enabled = 1;
 delete from authorities where authoritY in ('ROLE_ADMIN', 'ROLE_USER');
+
+--126
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `username` varchar(60) NOT NULL,
+  `password` varchar(80) DEFAULT NULL,
+  `authority` varchar(45) DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
+  `enabled` tinyint(1) DEFAULT '1',
+  `email` varchar(60) NOT NULL,
+  PRIMARY KEY (`username`)
+);
+
+DROP TABLE IF EXISTS `offers`;
+CREATE TABLE `offers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `text` text NOT NULL,
+  `username` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`,`username`),
+  KEY `fk_offers_users_idx` (`username`),
+  CONSTRAINT `fk_offers_users` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+drop table authorities;
+commit;
+
+show tables;
