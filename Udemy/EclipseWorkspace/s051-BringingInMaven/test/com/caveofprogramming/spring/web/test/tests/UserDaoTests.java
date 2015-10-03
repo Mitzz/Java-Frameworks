@@ -1,6 +1,7 @@
 package com.caveofprogramming.spring.web.test.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import javax.sql.DataSource;
 
@@ -13,6 +14,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.caveofprogramming.spring.web.dao.User;
 import com.caveofprogramming.spring.web.dao.UsersDao;
 
 @ActiveProfiles("dev")
@@ -32,10 +34,14 @@ public class UserDaoTests {
 	@Before
 	public void init(){
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
+		
+		jdbc.execute("delete from users");
+		jdbc.execute("delete from authorities");
 	}
-
+ 
 	@Test
 	public void testCreateUser(){
-		assertEquals("Dummy test", 1, 1);
+		User user = new User("mitz483_", "hellothere", "mitz@gmial.com", true, "user");
+		assertTrue("User creation should return true" , usersDao.create(user));
 	}
 }
