@@ -37,12 +37,13 @@ public class UserDaoTests {
 	public void init(){
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
 		
+		jdbc.execute("delete from offers");
 		jdbc.execute("delete from users");
 		 
 	}
  
 	@Test
-	public void testCreateUser(){
+	public void testUsers(){
 		User user = new User("johnwpurcell", "John Purcell", "hellothere", "john@caveofprogramming.com", true, "user");
 		assertTrue("User creation should return true" , usersDao.create(user));
 		

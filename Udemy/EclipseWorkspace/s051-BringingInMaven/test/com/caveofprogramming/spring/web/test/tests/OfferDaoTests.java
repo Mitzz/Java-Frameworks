@@ -48,7 +48,7 @@ public class OfferDaoTests {
 	}
 	
 	@Test
-	public void testCreateUser() {
+	public void testOffers() {
 
 		User user = new User("johnwpurcell", "John Purcell", "hellothere",
 				"john@caveofprogramming.com", true, "user");
