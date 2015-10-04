@@ -18,6 +18,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.caveofprogramming.spring.web.dao.Offer;
 import com.caveofprogramming.spring.web.dao.OffersDao;
+import com.caveofprogramming.spring.web.dao.User;
+import com.caveofprogramming.spring.web.dao.UsersDao;
 
 @ActiveProfiles("dev")
 @ContextConfiguration(locations = {
@@ -31,6 +33,9 @@ public class OfferDaoTests {
 	private OffersDao offersDao;
 	
 	@Autowired
+	private UsersDao usersDao;
+	
+	@Autowired
 	private DataSource dataSource;
 
 	@Before
@@ -39,36 +44,43 @@ public class OfferDaoTests {
 		
 		jdbc.execute("delete from offers");
 		jdbc.execute("delete from users");
-		jdbc.execute("delete from authorities");
+		
 	}
 	
 	@Test
 	public void testCreateUser() {
 
-		Offer offer = new Offer("johnwpurcell", "john@caveofprogramming.com", "This is a test offer.");
-		
+		User user = new User("johnwpurcell", "John Purcell", "hellothere",
+				"john@caveofprogramming.com", true, "user");
+
+		assertTrue("User creation should return true", usersDao.create(user));
+
+		Offer offer = new Offer(user, "This is a test offer.");
+
 		assertTrue("Offer creation should return true", offersDao.create(offer));
-		
+
 		List<Offer> offers = offersDao.getOffers();
-		
+
 		assertEquals("Should be one offer in database.", 1, offers.size());
-		
-		assertEquals("Retrieved offer should match created offer.", offer, offers.get(0));
-		
+
+		assertEquals("Retrieved offer should match created offer.", offer,
+				offers.get(0));
+
 		// Get the offer with ID filled in.
 		offer = offers.get(0);
-		
+
 		offer.setText("Updated offer text.");
 		assertTrue("Offer update should return true", offersDao.update(offer));
-		
+
 		Offer updated = offersDao.getOffer(offer.getId());
-		
-		assertEquals("Updated offer should match retrieved updated offer", offer, updated);
-		
+
+		assertEquals("Updated offer should match retrieved updated offer",
+				offer, updated);
+
 		offersDao.deleteOffer(offer.getId());
-		
+
 		List<Offer> empty = offersDao.getOffers();
-		
+
 		assertEquals("Offers lists should be empty.", 0, empty.size());
 	}
 	
