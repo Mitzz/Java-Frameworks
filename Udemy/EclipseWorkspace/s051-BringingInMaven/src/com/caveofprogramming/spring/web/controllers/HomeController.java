@@ -25,6 +25,15 @@ public class HomeController {
 		
 		List<Offer> offers = offersService.getCurrent();
 		model.addAttribute("offers", offers);
+		
+		boolean hasOffer = false;
+		
+		if(principal != null){
+			hasOffer = offersService.hasOffer(principal.getName());
+		}
+		
+		model.addAttribute("hasOffer", hasOffer);
+		
 		return "home";
 	}
 	
