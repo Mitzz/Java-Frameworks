@@ -10,7 +10,9 @@ public class Offer {
 	
 	private User user;
 	
-	public Offer() {}
+	public Offer() {
+		this.user = new User();
+	}
 	
 	public Offer(int id, User user, String text) {
 		this.id = id;
