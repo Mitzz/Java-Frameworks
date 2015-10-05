@@ -45,7 +45,7 @@ public class UserDaoTests {
 	@Test
 	public void testUsers(){
 		User user = new User("johnwpurcell", "John Purcell", "hellothere", "john@caveofprogramming.com", true, "user");
-		assertTrue("User creation should return true" , usersDao.create(user));
+		usersDao.create(user);
 		
 		List<User> users = usersDao.getAllUsers();
 		assertEquals("Number of users should be 1.", 1, users.size());
