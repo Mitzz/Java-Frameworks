@@ -4,14 +4,16 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Component("usersDao")
 public class UsersDao {
 	
@@ -20,11 +22,18 @@ public class UsersDao {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	public UsersDao(){}
 	
 	@Autowired
 	public void setDataSource(DataSource jdbc){
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
+	}
+	
+	public Session session(){
+		return sessionFactory.getCurrentSession();
 	}
 	
 	@Transactional
@@ -46,7 +55,9 @@ public class UsersDao {
 				new MapSqlParameterSource("username", username), Integer.class) > 0;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<User> getAllUsers() {
-		return jdbc.query("select * from users", BeanPropertyRowMapper.newInstance(User.class));
+		return session().createQuery("from User").list();
+//		return jdbc.query("select * from users", BeanPropertyRowMapper.newInstance(User.class));
 	}
 }
