@@ -69,6 +69,16 @@ public class UserDaoTests {
 		
 		assertEquals("Should be four retrieved users.", 4, users2.size());
 	}
+	
+	@Test
+	public void testExists() {
+		usersDao.create(user1);
+		usersDao.create(user2);
+		usersDao.create(user3);
+		
+		assertTrue("User should exist.", usersDao.exists(user2.getUsername()));
+		assertFalse("User should not exist.", usersDao.exists("xkjhsfjlsjf"));
+	}
  
 	@Test
 	public void testUsers(){
