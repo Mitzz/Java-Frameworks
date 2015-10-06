@@ -1,7 +1,6 @@
 package com.caveofprogramming.spring.web.test.tests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -91,6 +90,26 @@ public class OfferDaoTests {
 		assertEquals("Should be six offers for enabled users.", 6,
 				offers2.size());
 
+	}
+	
+	@Test
+	public void testUpdate() {
+		usersDao.create(user1);
+		usersDao.create(user2);
+		usersDao.create(user3);
+		usersDao.create(user4);
+		offersDao.saveOrUpdate(offer2);
+		offersDao.saveOrUpdate(offer3);
+		offersDao.saveOrUpdate(offer4);
+		offersDao.saveOrUpdate(offer5);
+		offersDao.saveOrUpdate(offer6);
+		offersDao.saveOrUpdate(offer7);
+		
+		offer3.setText("This offer has updated text.");
+		offersDao.saveOrUpdate(offer3);
+		
+		Offer retrieved = offersDao.getOffer(offer3.getId());
+		assertEquals("Retrieved offer should be updated.", offer3, retrieved);
 	}
 
 	@Test
