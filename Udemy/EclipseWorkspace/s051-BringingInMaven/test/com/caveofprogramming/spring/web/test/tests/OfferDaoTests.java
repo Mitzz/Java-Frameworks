@@ -57,7 +57,7 @@ public class OfferDaoTests {
 
 		Offer offer = new Offer(user, "This is a test offer.");
 
-		assertTrue("Offer creation should return true", offersDao.create(offer));
+		offersDao.create(offer);
 
 		List<Offer> offers = offersDao.getOffers();
 
@@ -80,7 +80,7 @@ public class OfferDaoTests {
 		// Test get by ID ///////
 		Offer offer2 = new Offer(user, "This is a test offer.");
 
-		assertTrue("Offer creation should return true", offersDao.create(offer2));
+		offersDao.create(offer2);
 		
 		List<Offer> userOffers = offersDao.getOffers(user.getUsername());
 		assertEquals("Should be two offers for user.", 2, userOffers.size());

@@ -1,13 +1,28 @@
 package com.caveofprogramming.spring.web.dao;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name="offers")
 public class Offer {
+	
+	@Id
+	@GeneratedValue
 	private int id;
 	
-	@Size(min=20, max=255)
+	@Size(min=5, max=255, groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Column(name="text")
 	private String text;
 	
+	@ManyToOne
+	@JoinColumn(name="username")
 	private User user;
 	
 	public Offer() {
