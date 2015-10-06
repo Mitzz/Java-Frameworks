@@ -5,11 +5,11 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -78,10 +78,9 @@ public class OffersDao {
 
 	public boolean delete(int id) {
 
-		MapSqlParameterSource params = new MapSqlParameterSource();
-		params.addValue("id", id);
-
-		return jdbc.update("Delete from offers where id = :id", params) == 1;
+		Query query = session().createQuery("delete from Offer where id=:id");
+		query.setLong("id", id);
+		return query.executeUpdate() == 1;
 
 	}
 }
