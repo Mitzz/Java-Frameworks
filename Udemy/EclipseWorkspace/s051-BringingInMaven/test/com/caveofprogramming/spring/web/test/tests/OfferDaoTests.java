@@ -141,7 +141,7 @@ public class OfferDaoTests {
 		offer = offers.get(0);
 
 		offer.setText("Updated offer text.");
-		assertTrue("Offer update should return true", offersDao.update(offer));
+		offersDao.update(offer);
 
 		Offer updated = offersDao.getOffer(offer.getId());
 

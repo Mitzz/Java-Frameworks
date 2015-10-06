@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -70,11 +68,8 @@ public class OffersDao {
 		session().save(offer);
 	}
 
-	public boolean update(Offer offer) {
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
-				offer);
-
-		return jdbc.update("update offers set text=:text where id=:id", params) == 1;
+	public void update(Offer offer) {
+		session().update(offer);
 	}
 
 	public Offer getOffer(int id) {
