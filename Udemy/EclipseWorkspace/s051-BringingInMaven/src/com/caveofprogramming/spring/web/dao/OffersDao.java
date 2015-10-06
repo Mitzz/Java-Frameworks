@@ -63,13 +63,9 @@ public class OffersDao {
 
 	}
 
-	public void create(Offer offer) {
+	public void saveOrUpdate(Offer offer) {
 
-		session().save(offer);
-	}
-
-	public void update(Offer offer) {
-		session().update(offer);
+		session().saveOrUpdate(offer);
 	}
 
 	public Offer getOffer(int id) {
