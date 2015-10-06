@@ -41,13 +41,8 @@ public class OffersDao {
 		System.out.println("Successfully loaded OffersDAO");
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Offer> getOffers() {
-
-		return jdbc.query("select * from offers, users where offers.username=users.username and users.enabled=true", new OfferRowMapper());
-
-	}
-	
-	public List<Offer> getOffers(String username) {
 
 		Criteria crit = session().createCriteria(Offer.class);
 		
@@ -56,22 +51,23 @@ public class OffersDao {
 		return crit.list();
 
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Offer> getOffers(String username) {
+
+		Criteria crit = session().createCriteria(Offer.class);
+		crit.createAlias("user", "u");
+		
+		crit.add(Restrictions.eq("u.enabled", true));
+		crit.add(Restrictions.eq("u.username", username)); 
+		
+		return crit.list();
+
+	}
 
 	public void create(Offer offer) {
 
 		session().save(offer);
-	}
-
-	@Transactional
-	public int[] create(List<Offer> offers) {
-
-		SqlParameterSource[] params = SqlParameterSourceUtils
-				.createBatch(offers.toArray());
-
-		return jdbc
-				.batchUpdate(
-						"insert into offers (username, text) values (:username, :text)",
-						params);
 	}
 
 	public boolean update(Offer offer) {
