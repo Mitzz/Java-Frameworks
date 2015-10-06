@@ -1,12 +1,12 @@
 package com.caveofprogramming.spring.web.test.tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -79,6 +79,8 @@ public class UserDaoTests {
 		assertEquals("Number of users should be 1.", 1, users.size());
 		
 		assertTrue("User should exist.", usersDao.exists(user.getUsername()));
+		
+		assertFalse("User should not exist.", usersDao.exists("sdfs"));
 		
 		assertEquals("Created user should be identical to retrieved user", user, users.get(0));
 	}

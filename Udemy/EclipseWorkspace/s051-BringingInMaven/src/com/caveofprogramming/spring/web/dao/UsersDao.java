@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -45,8 +47,11 @@ public class UsersDao {
 	}
 	
 	public boolean exists(String username) {
-		return jdbc.queryForObject("select count(*) from users where username=:username", 
-				new MapSqlParameterSource("username", username), Integer.class) > 0;
+		Criteria crit = session().createCriteria(User.class);
+		crit.add(Restrictions.eq("username", username));
+		User user = (User) crit.uniqueResult();
+		return user != null;
+		
 	}
 	
 	@SuppressWarnings("unchecked")
