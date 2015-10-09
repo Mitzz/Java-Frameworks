@@ -59,3 +59,18 @@ drop table authorities;
 commit;
 
 show tables;
+
+--152
+drop table messages;
+create table messages(
+	id int primary key AUTO_INCREMENT,
+	subject varchar(100) not null,
+	content varchar(1000) not null,
+	name varchar(100) not null,
+	email varchar(60) not null,
+	username varchar(60) not null,
+	FOREIGN KEY (username) REFERENCES users(username)
+);
+show tables;
+
+desc messages;
