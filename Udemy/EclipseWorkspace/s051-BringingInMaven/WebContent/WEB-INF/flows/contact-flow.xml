@@ -7,6 +7,10 @@
 	<var name="message" class="com.caveofprogramming.spring.web.dao.Message"/>
 	
 	<view-state id="showContactForm" model="message">
+		<transition on="send" to="messageSent"></transition>
+	</view-state>
+	
+	<view-state id="messageSent">
 	</view-state>
 
 </flow>
