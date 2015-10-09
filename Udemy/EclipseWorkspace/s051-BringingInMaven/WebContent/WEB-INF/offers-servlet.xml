@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:webflow-config="http://www.springframework.org/schema/webflow-config"
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.3.xsd
@@ -33,8 +34,7 @@
 		</property>
 	</bean>
 	
-	<webflow-config:flow-registry id="flowRegistry"
-		base-path="/WEB-INF/flows">
+	<webflow-config:flow-registry id="flowRegistry" base-path="/WEB-INF/flows" flow-builder-services="flowBuilderServices">
 		<webflow-config:flow-location path="contact-flow.xml"
 			id="message">
 		</webflow-config:flow-location>
@@ -43,14 +43,18 @@
 	<webflow-config:flow-executor id="flowExecutor" flow-registry="flowRegistry">
 	</webflow-config:flow-executor>
 	
-	<bean id="flowHandlerAdaptor"
-		class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+	<bean id="flowHandlerAdaptor" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor"></property>
 	</bean>
 	
-	<bean id="flowHandlerMapping"
-		class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+	<bean id="flowHandlerMapping" class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry"></property>
 		<property name="order" value="0"></property>
+	</bean>
+	
+	<webflow-config:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator" />
+	
+	<bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<property name="viewResolvers" ref="tilesViewResolver"></property>
 	</bean>
 </beans>
