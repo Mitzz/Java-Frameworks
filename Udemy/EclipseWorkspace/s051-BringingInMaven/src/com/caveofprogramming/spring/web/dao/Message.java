@@ -29,7 +29,6 @@ public class Message implements Serializable {
 	private String username;
 
 	public Message() {
-		this.name = "Testing works";
 	}
 
 	public Message(String subject, String content, String name, String email,
@@ -139,5 +138,11 @@ public class Message implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", subject=" + subject + ", content="
+				+ content + ", name=" + name + ", email=" + email
+				+ ", username=" + username + "]";
+	}
 	
 }
