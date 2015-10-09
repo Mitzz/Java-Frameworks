@@ -1,5 +1,7 @@
 package com.caveofprogramming.spring.web.dao;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,8 +9,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="messages")
-public class Message {
+public class Message implements Serializable {
 
+	private static final long serialVersionUID = 8063111826064761657L;
 	@Id
 	@GeneratedValue
 	private int id;
@@ -26,7 +29,7 @@ public class Message {
 	private String username;
 
 	public Message() {
-
+		this.name = "Testing works";
 	}
 
 	public Message(String subject, String content, String name, String email,

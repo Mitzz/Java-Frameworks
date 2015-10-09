@@ -4,7 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-	<view-state id="showContactForm">
+	<var name="message" class="com.caveofprogramming.spring.web.dao.Message"/>
+	
+	<view-state id="showContactForm" model="message">
 	</view-state>
 
 </flow>
